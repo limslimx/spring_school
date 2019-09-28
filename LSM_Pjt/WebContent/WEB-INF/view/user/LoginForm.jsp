@@ -41,6 +41,9 @@
 </tr>
 </table>
 <input type="submit" value="로그인">
+<button type="button" onclick="location.href='/user/findUserId.do' ">Id 찾기</button>
 </form>
+
+
 </body>
 </html>

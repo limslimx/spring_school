@@ -57,8 +57,10 @@ public class UserInfoController {
 			
 			pDTO.setUser_id(user_id);
 			pDTO.setUser_name(user_name);
+			//비밀번호는 절대로 복호화되지 않도록 해시 알고리즘으로 암호화함
 			pDTO.setPassword(EncryptUtil.encHashSHA256(password));
-			pDTO.setEmail(EncryptUtil.encHashSHA256(email));
+			//이메일 정보는 복호화가 가능하도록 AES128-CBC로 암호화함
+			pDTO.setEmail(EncryptUtil.encAES128CBC(email));
 			pDTO.setAddr1(addr1);
 			pDTO.setAddr2(addr2);
 			
@@ -132,5 +134,65 @@ public class UserInfoController {
 			pDTO=null;
 		}
 		return "/user/LoginResult";
+	}
+	
+	@RequestMapping(value="user/findUserId")
+	public String findUserId(HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
+		
+		log.info(this.getClass().getName()+".findUserId start!");
+		
+		
+		return "/user/findUserId";
+	}
+	
+	@RequestMapping(value="user/findUserIdProc")
+	public String findUserIdProc(HttpSession session, HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception{
+		
+		log.info(this.getClass().getName()+".findUserIdProc start!");
+		
+		int res=0;
+		
+		UserInfoDTO pDTO=null;
+		
+		try {
+			String user_name=request.getParameter("user_name");
+			
+			log.info("user_name: "+user_name);
+			
+			pDTO=new UserInfoDTO();
+			pDTO.setUser_name(user_name);
+			
+			String user_id=userInfoService.findUserId(pDTO);
+			
+			log.info("user_id: "+user_id);
+			
+			session.setAttribute("user_id", user_id);
+			
+			
+			
+		} catch(Exception e) {
+			res=2;
+			log.info(e.toString());
+			e.printStackTrace();
+		} finally {
+			log.info(this.getClass().getName()+".findUserIdProc end!");
+			
+		}
+		if(res!=1) {
+			model.addAttribute("msg", "id찾기 성공");
+			model.addAttribute("url", "/user/findUserIdForm.do");
+		} else {
+			model.addAttribute("msg", "id찾기 실패");
+			model.addAttribute("url", "/user/findUserId.do");
+		}
+		
+		return "/redirect";
+	}
+	
+	@RequestMapping(value="user/findUserIdForm")
+	public String findUserIdForm() {
+		log.info(this.getClass().getName()+".findUserIdForm start!");
+
+		return "/user/findUserIdForm";
 	}
 }
