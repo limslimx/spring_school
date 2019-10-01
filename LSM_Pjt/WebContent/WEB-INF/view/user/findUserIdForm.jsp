@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String user_id=session.getAttribute("user_id");
+	String user_id=(String)session.getAttribute("user_id");
 %>
 <!DOCTYPE html>
 <html>

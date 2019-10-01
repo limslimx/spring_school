@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
-			<version>1.4</version>
+			<version>1.4.3</version>
 		</dependency>
 		
 	<!-- 데이터 전송시, 문자 깨지는 현상을 방지하기 위한 BASE64 인코딩 사용할 라이	브러리 추가 -->

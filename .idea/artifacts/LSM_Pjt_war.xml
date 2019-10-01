@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LSM_Pjt:war">
+    <output-path>$PROJECT_DIR$/LSM_Pjt/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>LSM_Pjt</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SpringPRJ-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="LSM_Pjt:war exploded" />
+    </root>
+  </artifact>
+</component>
