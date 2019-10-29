@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IMovieMapper">
+<!-- 회원 가입하기 -->
+<!-- 아래와 같이 seq를 사용하려면 from movie_info a처럼 테이블 뒤에 별칭을 지정해줘야 함  -->
+<insert id="InsertMovieInfo" parameterType="MovieDTO">
+	INSERT INTO MOVIE_INFO
+		(
+			RANK_CHECK_TIME,
+			SEQ,
+			MOVIE_RANK,
+			MOVIE_NAME,
+			MOVIE_RESERVE,
+			SCORE,
+			OPEN_DAY,
+			REG_ID,
+			CHG_ID
+		) VALUES (
+			#{rank_check_time},
+			(SELECT NVL(MAX(A.SEQ), 0)+1 FROM MOVIE_INFO A WHERE A.RANK_CHECK_TIME=#{rank_check_time}),
+			#{movie_rank},
+			#{movie_name},
+			#{movie_reserve},
+			#{score},
+			#{open_day},
+			#{reg_id},
+			#{reg_id}
+		)
+</insert>
+
+</mapper>

@@ -4,6 +4,7 @@ public class UserDTO {
    
 	private String user_id;
 	private String user_name;
+	private String passwd;
 	private String password;
 	private String email;
 	private String reg_id;
@@ -34,6 +35,14 @@ public class UserDTO {
 		this.user_name = user_name;
 	}
 
+	public String getPasswd() {
+		return passwd;
+	}
+
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
 
 	public String getPassword() {
 		return password;

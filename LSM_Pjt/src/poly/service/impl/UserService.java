@@ -96,4 +96,81 @@ public class UserService implements IUserService {
 		return fDTO.getUser_id();
 	}
 
+	@Override
+	public UserDTO idCheck(String id) throws Exception {
+		
+		return userMapper.idCheck(id);
+	}
+
+	@Override
+	public UserDTO emailCheck(String email) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.emailCheck(email);
+	}
+
+	@Override
+	public int findUserPw(UserDTO pDTO) throws Exception {
+		
+		int res=0;
+		String passwd=pDTO.getPasswd();
+		
+		userMapper.findUserPw(pDTO);
+		
+		UserDTO uDTO=userMapper.getUserInfo(pDTO);
+		
+		if(uDTO!=null) {
+			res=1;
+			
+			//mail 발송 로직 추가
+			MailDTO mDTO=new MailDTO();
+			
+			mDTO.setToMail(EncryptUtil.decAES128CBC(CmmUtil.nvl(uDTO.getEmail())));
+			mDTO.setTitle("Socsche의 임시비밀번호입니다.");
+			mDTO.setContents("임시비밀번호는 "+CmmUtil.nvl(passwd)+"입니다.");
+			
+			
+			mailService.doSendMail(mDTO);
+			
+		} else {
+			res=0;
+		}
+		return res;
+	}
+
+	@Override
+	public UserDTO getMypage(UserDTO pDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.getMypage(pDTO);
+	}
+
+	@Override
+	public int changeName(UserDTO uDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.changeName(uDTO);
+	}
+
+	@Override
+	public int changeEmail(UserDTO uDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.changeEmail(uDTO);
+	}
+
+	@Override
+	public UserDTO pwCheck(UserDTO pDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.pwCheck(pDTO);
+	}
+	
+	@Override
+	public int changePw(UserDTO uDTO) throws Exception {
+		
+		return userMapper.changePw(uDTO);
+	}
+
+	@Override
+	public int deleteUserInfo(UserDTO uDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return userMapper.deleteUserInfo(uDTO);
+	}
+
 }

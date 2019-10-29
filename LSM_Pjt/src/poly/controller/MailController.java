@@ -56,8 +56,6 @@ public class MailController {
 			model.addAttribute("msg", toMail+"로 메일 전송이 실패하였습니다.");
 			model.addAttribute("url", "/mail/sendMailForm.do");
 		}
-		
-		
 
 		log.info(this.getClass().getName()+"mail.sendMail end!");
 		
