@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IScheduleMapper">
+<!-- 회원 가입하기 -->
+<!-- 아래와 같이 seq를 사용하려면 from movie_info a처럼 테이블 뒤에 별칭을 지정해줘야 함  -->
+<insert id="FindSoccerSchedule" parameterType="ScheduleDTO">
+	INSERT INTO SCHEDULE_INFO
+		(
+			COLLECT_TIME,
+			SCHEDULE_SEQ,
+			MATCH_TIME,
+			TEAM1,
+			TEAM2,
+			SCORE1,
+			SCORE2,
+			REG_ID,
+			CHG_ID
+		) VALUES (
+			#{collect_time},
+			(SELECT NVL(MAX(A.SEQ), 0)+1 FROM SCHEDULE_INFO A WHERE A.COLLECT_TIME=#{collect_time}),
+			#{match_time},
+			#{team1},
+			#{team2},
+			#{score1},
+			#{score2},
+			#{reg_id},
+			#{reg_id}
+		)
+</insert>
+
+</mapper>

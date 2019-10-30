@@ -10,5 +10,6 @@
 		<typeAlias type="poly.dto.FreeNotiDTO" alias="FreeNotiDTO"/>
 		<typeAlias type="poly.dto.MovieDTO" alias="MovieDTO"/>
 		<typeAlias type="poly.dto.FoodDTO" alias="FoodDTO"/>
+		<typeAlias type="poly.dto.ScheduleDTO" alias="ScheduleDTO"/>
     </typeAliases>
 </configuration>
