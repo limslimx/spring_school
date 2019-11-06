@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poly.persistance.mapper.ISoccerMapper">
+<select id="getSoccerResult" resultType="ResultDTO">
+	SELECT
+		RANK AS rank, TEAM AS team, TOTAL_MATCH AS total_match, WON_MATCH AS won_match, DRAW_MATCH AS draw_match, LOST_MATCH AS lost_match, GOAL AS goal, LOST AS lost, DIFF AS diff, POINT AS point, MATCH AS match
+	FROM
+		SOCCER_RESULT
+	ORDER BY
+		LENGTH(RANK) ASC, RANK ASC
+</select>
+</mapper>

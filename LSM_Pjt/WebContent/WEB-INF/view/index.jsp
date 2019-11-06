@@ -2,18 +2,19 @@
     pageEncoding="UTF-8"%>
 
 <%
-	String id=(String)session.getAttribute("SS_USER_ID");
+	String id=(String)session.getAttribute("user_id");
 %>
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
-<%@ include file="head.jsp" %>	
+<%@ include file="head/head.jsp" %>	
 		
 		<body>
-		id=<%=id %>
 		<script type="text/javascript">
 			var id=<%=id %>
 			
-			document.write(id);
+			if(id!=null){
+				document.getElementById("id").display="none";
+			}
 			
 		</script>
 		<script type="text/javascript">
@@ -87,8 +88,8 @@
 				          <li><a href="schedule.do">Schedule</a></li>
 				          <li><a href="/noti/notiList.do">Notice Board</a></li>
 						  <li><a href="contact.do">Contact</a></li>
-						  <li><a href="/user/signIn.do">Sign In</a></li>
-						  <li><a href="/user/signUp.do">Sign Up</a></li>
+						  <li><a href="/signIn.do">Sign In</a></li>
+						  <li><a href="/signUp.do">Sign Up</a></li>
 						
 				        </ul>
 				      </nav><!-- #nav-menu-container -->					      		  
@@ -141,7 +142,7 @@
 				</div>					
 			</section>
 			<!-- End banner Area -->
-s
-			<%@ include file="footer.jsp" %>	
+			<%@ include file="footer/footer_main.jsp" %>
+			<%@ include file="js/js_main.jsp" %>
 		</body>
 	</html>

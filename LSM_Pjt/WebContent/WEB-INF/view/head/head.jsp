@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -30,6 +28,3 @@
 			<link rel="stylesheet" href="/resources/css/animate.min.css">
 			<link rel="stylesheet" href="/resources/css/owl.carousel.css">				
 			<link rel="stylesheet" href="/resources/css/main.css">
-
-
-</head>

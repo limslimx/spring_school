@@ -2483,7 +2483,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /*-------- Start Banner Area ------------*/
 .banner-area {
-  background: url(../img/soccer_background.jpg) center;
+  background: url(../img/soccer_main.jpg) center;
   background-size: cover;
 }
 
@@ -3006,7 +3006,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .about-banner {
-  background: url(../img/soccer_background.jpg) center;
   background-size: cover;
 }
 

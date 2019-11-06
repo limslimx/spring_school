@@ -6,5 +6,10 @@
     	<!-- 사용할 DTO 등록  -->
 		<typeAlias type="poly.dto.NoticeDTO" alias="NoticeDTO"/>
 		<typeAlias type="poly.dto.UserDTO" alias="UserDTO"/>
+		<typeAlias type="poly.dto.NotiDTO" alias="NotiDTO"/>
+		<typeAlias type="poly.dto.FreeNotiDTO" alias="FreeNotiDTO"/>
+		<typeAlias type="poly.dto.MovieDTO" alias="MovieDTO"/>
+		<typeAlias type="poly.dto.ScheduleDTO" alias="ScheduleDTO"/>
+		<typeAlias type="poly.dto.ResultDTO" alias="ResultDTO"/>
     </typeAliases>
 </configuration>

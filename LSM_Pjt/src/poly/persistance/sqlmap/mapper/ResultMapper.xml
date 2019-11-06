@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poly.persistance.mapper.IResultMapper">
+
+<insert id="insertResultInfo" parameterType="ResultDTO">
+	INSERT INTO SOCCER_RESULT(
+		COLLECT_TIME,
+		RESULT_SEQ,
+		RANK,
+		TEAM,
+		TOTAL_MATCH,
+		WON_MATCH,
+		DRAW_MATCH,
+		LOST_MATCH,
+		GOAL,
+		LOST,
+		DIFF,
+		POINT,
+		MATCH,
+		REG_ID,
+		CHG_ID
+	) VALUES (
+		#{collect_time},
+		RESULT_SEQ.NEXTVAL,
+		#{rank},
+		#{team},
+		#{total_match},
+		#{won_match},
+		#{draw_match},
+		#{lost_match},
+		#{goal},
+		#{lost},
+		#{diff},
+		#{point},
+		#{match},
+		#{reg_id},
+		#{reg_id}
+		)
+</insert>
+<update id="updateResultInfo" parameterType="ResultDTO">
+	UPDATE SOCCER_RESULT
+		SET RANK=#{rank}, TEAM=#{team}, TOTAL_MATCH=#{total_match}, WON_MATCH=#{won_match}, DRAW_MATCH=#{draw_match}, LOST_MATCH=#{lost_match}, GOAL=#{goal}, LOST=#{lost}, DIFF=#{diff}, POINT=#{point}, MATCH=#{match}
+	WHERE TEAM=#{team}
+</update>
+</mapper>
